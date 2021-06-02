@@ -1,13 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using PremierAthletics.Models;
 
 namespace PremierAthletics
 {
@@ -23,7 +20,14 @@ namespace PremierAthletics
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddMvc();
+
+            services.AddEntityFrameworkMySql()
+                .AddDbContext<PremierAthleticsContext>(options => options
+                .UseMySql(Configuration
+                ["ConnectionStrings:DefaultConnection"],
+                ServerVersion.AutoDetect(Configuration
+                ["ConnectionStrings:DefaultConnection"])));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,9 +58,4 @@ namespace PremierAthletics
             });
         }
     }
-    public static class DBConfiguration
-    {
-        public static string ConnectionString = "server=localhost;user id=root;password=epicodus;port=3306;database=premier_athletics;";
-    }
-
 }

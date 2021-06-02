@@ -10,7 +10,7 @@ namespace PremierAthletics.Models
     {
 
       public Athlete() {
-        this.Teams = new HashSet<Team>();
+        this.Teams = new HashSet<AthleteTeam>();
       }
         public string AthleteId {get; set;}
         public string FirstName { get; set; }
@@ -19,6 +19,6 @@ namespace PremierAthletics.Models
         [Required]
         [EmailAddress]
         public string email {get; set;}
-        public ICollection<Team> Teams {get; set;}
+        public ICollection<AthleteTeam> Teams {get; set;}
     }
 }

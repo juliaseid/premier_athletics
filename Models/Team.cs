@@ -10,13 +10,13 @@ namespace PremierAthletics.Models
     {
 
       public Team() {
-        this.Signatures = new HashSet<SignatureRequest>();
+        this.Athletes = new HashSet<AthleteTeam>();
+        this.SignatureRequests = new HashSet<SignatureRequestTeam>();
       }
         public string TeamId {get; set;}
         public string TeamName { get; set; }
-        public string Sport {get; set;}
-        public 
-        public ICollection<SignatureRequest> Signatures {get; set;}
+        public string Sport {get; set;} 
+        public virtual ICollection<AthleteTeam> Athletes {get; set;}
+        public virtual ICollection<SignatureRequestTeam> SignatureRequests {get; set;}
     }
 }
-//TODO: properly configure relationships between Team-Athlete (many-to-many, need join table) and Team-SignatureRequest(also many-to-many, need join table)
