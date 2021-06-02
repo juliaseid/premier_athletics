@@ -9,7 +9,7 @@ using PremierAthletics.Models;
 namespace hellosignmvc.Migrations
 {
     [DbContext(typeof(PremierAthleticsContext))]
-    [Migration("20210602234447_Initial")]
+    [Migration("20210602234929_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,23 +48,17 @@ namespace hellosignmvc.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("AthleteId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("AthleteId1")
+                    b.Property<string>("AthleteId")
                         .HasColumnType("varchar(255)");
 
-                    b.Property<int>("TeamId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TeamId1")
+                    b.Property<string>("TeamId")
                         .HasColumnType("varchar(255)");
 
                     b.HasKey("AthleteTeamId");
 
-                    b.HasIndex("AthleteId1");
+                    b.HasIndex("AthleteId");
 
-                    b.HasIndex("TeamId1");
+                    b.HasIndex("TeamId");
 
                     b.ToTable("AthleteTeam");
                 });
@@ -85,23 +79,17 @@ namespace hellosignmvc.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("SignatureRequestId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SignatureRequestId1")
+                    b.Property<string>("SignatureRequestId")
                         .HasColumnType("varchar(255)");
 
-                    b.Property<int>("TeamId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TeamId1")
+                    b.Property<string>("TeamId")
                         .HasColumnType("varchar(255)");
 
                     b.HasKey("SignatureRequestTeamId");
 
-                    b.HasIndex("SignatureRequestId1");
+                    b.HasIndex("SignatureRequestId");
 
-                    b.HasIndex("TeamId1");
+                    b.HasIndex("TeamId");
 
                     b.ToTable("SignatureRequestTeam");
                 });
@@ -126,11 +114,11 @@ namespace hellosignmvc.Migrations
                 {
                     b.HasOne("PremierAthletics.Models.Athlete", "Athlete")
                         .WithMany("Teams")
-                        .HasForeignKey("AthleteId1");
+                        .HasForeignKey("AthleteId");
 
                     b.HasOne("PremierAthletics.Models.Team", "Team")
                         .WithMany("Athletes")
-                        .HasForeignKey("TeamId1");
+                        .HasForeignKey("TeamId");
 
                     b.Navigation("Athlete");
 
@@ -141,11 +129,11 @@ namespace hellosignmvc.Migrations
                 {
                     b.HasOne("PremierAthletics.Models.SignatureRequest", "SignatureRequest")
                         .WithMany("Teams")
-                        .HasForeignKey("SignatureRequestId1");
+                        .HasForeignKey("SignatureRequestId");
 
                     b.HasOne("PremierAthletics.Models.Team", "Team")
                         .WithMany("SignatureRequests")
-                        .HasForeignKey("TeamId1");
+                        .HasForeignKey("TeamId");
 
                     b.Navigation("SignatureRequest");
 

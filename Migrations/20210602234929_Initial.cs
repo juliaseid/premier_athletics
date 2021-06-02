@@ -67,25 +67,23 @@ namespace hellosignmvc.Migrations
                 {
                     AthleteTeamId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    AthleteId = table.Column<int>(type: "int", nullable: false),
-                    TeamId = table.Column<int>(type: "int", nullable: false),
-                    AthleteId1 = table.Column<string>(type: "varchar(255)", nullable: true)
+                    AthleteId = table.Column<string>(type: "varchar(255)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    TeamId1 = table.Column<string>(type: "varchar(255)", nullable: true)
+                    TeamId = table.Column<string>(type: "varchar(255)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AthleteTeam", x => x.AthleteTeamId);
                     table.ForeignKey(
-                        name: "FK_AthleteTeam_Athletes_AthleteId1",
-                        column: x => x.AthleteId1,
+                        name: "FK_AthleteTeam_Athletes_AthleteId",
+                        column: x => x.AthleteId,
                         principalTable: "Athletes",
                         principalColumn: "AthleteId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_AthleteTeam_Teams_TeamId1",
-                        column: x => x.TeamId1,
+                        name: "FK_AthleteTeam_Teams_TeamId",
+                        column: x => x.TeamId,
                         principalTable: "Teams",
                         principalColumn: "TeamId",
                         onDelete: ReferentialAction.Restrict);
@@ -98,25 +96,23 @@ namespace hellosignmvc.Migrations
                 {
                     SignatureRequestTeamId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    SignatureRequestId = table.Column<int>(type: "int", nullable: false),
-                    TeamId = table.Column<int>(type: "int", nullable: false),
-                    SignatureRequestId1 = table.Column<string>(type: "varchar(255)", nullable: true)
+                    SignatureRequestId = table.Column<string>(type: "varchar(255)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    TeamId1 = table.Column<string>(type: "varchar(255)", nullable: true)
+                    TeamId = table.Column<string>(type: "varchar(255)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_SignatureRequestTeam", x => x.SignatureRequestTeamId);
                     table.ForeignKey(
-                        name: "FK_SignatureRequestTeam_SignatureRequests_SignatureRequestId1",
-                        column: x => x.SignatureRequestId1,
+                        name: "FK_SignatureRequestTeam_SignatureRequests_SignatureRequestId",
+                        column: x => x.SignatureRequestId,
                         principalTable: "SignatureRequests",
                         principalColumn: "SignatureRequestId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_SignatureRequestTeam_Teams_TeamId1",
-                        column: x => x.TeamId1,
+                        name: "FK_SignatureRequestTeam_Teams_TeamId",
+                        column: x => x.TeamId,
                         principalTable: "Teams",
                         principalColumn: "TeamId",
                         onDelete: ReferentialAction.Restrict);
@@ -124,24 +120,24 @@ namespace hellosignmvc.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AthleteTeam_AthleteId1",
+                name: "IX_AthleteTeam_AthleteId",
                 table: "AthleteTeam",
-                column: "AthleteId1");
+                column: "AthleteId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AthleteTeam_TeamId1",
+                name: "IX_AthleteTeam_TeamId",
                 table: "AthleteTeam",
-                column: "TeamId1");
+                column: "TeamId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SignatureRequestTeam_SignatureRequestId1",
+                name: "IX_SignatureRequestTeam_SignatureRequestId",
                 table: "SignatureRequestTeam",
-                column: "SignatureRequestId1");
+                column: "SignatureRequestId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SignatureRequestTeam_TeamId1",
+                name: "IX_SignatureRequestTeam_TeamId",
                 table: "SignatureRequestTeam",
-                column: "TeamId1");
+                column: "TeamId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
