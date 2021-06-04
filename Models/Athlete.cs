@@ -11,6 +11,7 @@ namespace PremierAthletics.Models
 
       public Athlete() {
         this.Teams = new HashSet<AthleteTeam>();
+        this.eSignatures = new HashSet<HSeSignature>();
       }
         public string AthleteId {get; set;}
         public string FirstName { get; set; }
@@ -20,5 +21,6 @@ namespace PremierAthletics.Models
         [EmailAddress]
         public string Email {get; set;}
         public ICollection<AthleteTeam> Teams {get; set;}
+        public ICollection<HSeSignature> eSignatures {get; set;}
     }
 }

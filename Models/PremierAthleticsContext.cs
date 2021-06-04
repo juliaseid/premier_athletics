@@ -9,6 +9,7 @@ namespace PremierAthletics.Models
     public DbSet<Team> Teams { get; set; }
     public DbSet<AthleteTeam> AthleteTeam { get; set; }
     public DbSet<DocumentTeam> DocumentTeam { get; set; }
+    public DbSet<HSeSignature> eSignatures {get; set;}
 
     public PremierAthleticsContext(DbContextOptions options) : base(options) { }
 
