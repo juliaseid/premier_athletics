@@ -11,12 +11,12 @@ namespace PremierAthletics.Models
 
       public Team() {
         this.Athletes = new HashSet<AthleteTeam>();
-        this.SignatureRequests = new HashSet<SignatureRequestTeam>();
+        this.Documents = new HashSet<DocumentTeam>();
       }
         public string TeamId {get; set;}
         public string TeamName { get; set; }
         public string Sport {get; set;} 
         public virtual ICollection<AthleteTeam> Athletes {get; set;}
-        public virtual ICollection<SignatureRequestTeam> SignatureRequests {get; set;}
+        public virtual ICollection<DocumentTeam> Documents {get; set;}
     }
 }

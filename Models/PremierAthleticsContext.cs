@@ -5,10 +5,10 @@ namespace PremierAthletics.Models
   public class PremierAthleticsContext : DbContext
   {
     public virtual DbSet<Athlete> Athletes { get; set; }
-    public DbSet<SignatureRequest> SignatureRequests { get; set; }
+    public DbSet<Document> Documents { get; set; }
     public DbSet<Team> Teams { get; set; }
     public DbSet<AthleteTeam> AthleteTeam { get; set; }
-    public DbSet<SignatureRequestTeam> SignatureRequestTeam { get; set; }
+    public DbSet<DocumentTeam> DocumentTeam { get; set; }
 
     public PremierAthleticsContext(DbContextOptions options) : base(options) { }
 

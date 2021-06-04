@@ -3,3 +3,4 @@ obj
 /lib
 appsettings.json
 appsettings.Development.js
+Keys.cs

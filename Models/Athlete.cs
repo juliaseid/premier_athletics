@@ -18,7 +18,7 @@ namespace PremierAthletics.Models
         public DateTime Birthday {get; set;}
         [Required]
         [EmailAddress]
-        public string email {get; set;}
+        public string Email {get; set;}
         public ICollection<AthleteTeam> Teams {get; set;}
     }
 }
