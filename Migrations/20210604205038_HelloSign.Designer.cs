@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PremierAthletics.Models;
 
 namespace hellosignmvc.Migrations
 {
     [DbContext(typeof(PremierAthleticsContext))]
-    partial class PremierAthleticsContextModelSnapshot : ModelSnapshot
+    [Migration("20210604205038_HelloSign")]
+    partial class HelloSign
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

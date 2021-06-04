@@ -25,7 +25,21 @@ namespace PremierAthletics.Models
         request.AddFile(document.Filepath);
         request.TestMode = true;
       var response = client.CreateEmbeddedSignatureRequest(request, Keys.ClientID);
-      return Task.CompletedTask;
+      return Task.FromResult(response);
+    }
+
+    public static Task GetSignURL(HSeSignature signatureRequest)
+    {
+      var client = new HelloSign.Client(Keys.APIKey);
+      var response = client.GetSignUrl(signatureRequest.SignatureRequestID);
+      return Task.FromResult(response); 
+    }
+
+    public static Task GetSignatureRequest(HSeSignature signatureRequest)
+    {
+      var client = new HelloSign.Client(Keys.APIKey);
+      var response = client.GetSignatureRequest(signatureRequest.SignatureRequestID);
+      return Task.FromResult(response);
     }
 
 

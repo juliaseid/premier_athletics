@@ -13,6 +13,7 @@ namespace PremierAthletics.Models
         this.Teams = new HashSet<DocumentTeam>();
         this.eSignatures = new HashSet<HSeSignature>();
       }
+        public string DocumentID {get; set;}
         public string Title {get; set;}
         public string Subject {get; set;}
         public string Message {get; set;}
